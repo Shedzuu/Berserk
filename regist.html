@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Страница регистрации</title>
+<style>
+  body, html {
+    height: 100%; 
+    margin: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("https://img.freepik.com/free-vector/black-stripe-with-red-border-on-the-dark_260559-130.jpg?w=1060&t=st=1699424319~exp=1699424919~hmac=442434b162a10698b6a93a9afca41ae9dae49ff6afe752ad06bd0d519d2cad85"); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .register-container {
+    background: white;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: slideIn 0.5s ease-in-out;
+  }
+
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+  }
+
+  input[type="radio"] {
+    margin: 0 4px;
+  }
+
+  label {
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .gender-label {
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  button {
+    background-color: #B22222 ;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #feb47b;
+    box-shadow: 0 6px 12px rgba(255, 99, 71, 0.3);
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="register-container">
+  <h2>Регистрация</h2>
+  <form id="registrationForm">
+    <input type="text" placeholder="Имя" name="firstname" required>
+    <input type="text" placeholder="Фамилия" name="lastname" required>
+    <input type="email" placeholder="Email" name="email" required>
+    <input type="tel" placeholder="Телефон" name="phone" required>
+    <div class="gender-label">
+      <input type="radio" id="male" name="gender" value="male" required>
+      <label for="male">Мужской</label>
+      <input type="radio" id="female" name="gender" value="female" required>
+      <label for="female">Женский</label>
+    </div>
+    <input type="password" placeholder="Пароль" name="password" required>
+    <input type="text" placeholder="Адрес" name="address" required>
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+</div>
+
+<script>
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+
+  var formData = new FormData(event.target);
+  console.log(Object.fromEntries(formData.entries()));
+
+});
+</script>
+
+</body>
+</html>
